@@ -35,12 +35,12 @@ int sm2_create_key_pair(SM2_KEY_PAIR *key_pair)
 	bn_y = BN_CTX_get(ctx);
 	if ( !(bn_y) )
 	{
-		goto clean_up;
+	        goto clean_up;
 	}
 
 	if ( !(group = EC_GROUP_new_by_curve_name(NID_sm2)) )
 	{
-		goto clean_up;
+	        goto clean_up;
 	}
 	if ( !(bn_order = EC_GROUP_get0_order(group)) )
 	{
