@@ -19,10 +19,10 @@
 /*********************************************************/
 int sm2_encrypt_data_test(const unsigned char *message,
                           const int message_len,
-						  const unsigned char *pub_key,
-						  unsigned char *c1,
-						  unsigned char *c3,
-						  unsigned char *c2)
+			  const unsigned char *pub_key,
+			  unsigned char *c1,
+			  unsigned char *c3,
+			  unsigned char *c2)
 {
 	int error_code;
 	unsigned char k[32] = {0x59, 0x27, 0x6e, 0x27, 0xd5, 0x06, 0x86, 0x1a,
@@ -120,9 +120,9 @@ int sm2_encrypt_data_test(const unsigned char *message,
 
 	if ( !(EC_POINT_set_affine_coordinates_GFp(group,
 	                                           pub_key_pt,
-											   bn_pub_key_x,
-											   bn_pub_key_y,
-											   ctx)) )
+						   bn_pub_key_x,
+						   bn_pub_key_y,
+						   ctx)) )
 	{
 		goto clean_up;
 	}
@@ -160,21 +160,21 @@ int sm2_encrypt_data_test(const unsigned char *message,
 		}
 		if ( !(EC_POINT_get_affine_coordinates_GFp(group,
 		                                           ec_pt,
-												   bn_x2,
-												   bn_y2,
-												   ctx)) )
+							   bn_x2,
+							   bn_y2,
+							   ctx)) )
 		{
 			goto clean_up;
 		}
 		if ( BN_bn2binpad(bn_x2,
 		                  x2,
-						  sizeof(x2)) != sizeof(x2) )
+				  sizeof(x2)) != sizeof(x2) )
 		{
 			goto clean_up;
 		}
 		if ( BN_bn2binpad(bn_y2,
 		                  y2,
-						  sizeof(y2)) != sizeof(y2) )
+				  sizeof(y2)) != sizeof(y2) )
 		{
 			goto clean_up;
 		}
@@ -183,11 +183,11 @@ int sm2_encrypt_data_test(const unsigned char *message,
 		
 		if ( !(ECDH_KDF_X9_62(t,
 		                      message_len,
-							  x2_y2,
-							  sizeof(x2_y2),
-							  NULL,
-							  0,
-							  md)) )
+				      x2_y2,
+				      sizeof(x2_y2),
+				      NULL,
+				      0,
+				      md)) )
 		{
 			error_code = COMPUTE_SM2_KDF_FAIL;
 			goto clean_up;
@@ -210,22 +210,22 @@ int sm2_encrypt_data_test(const unsigned char *message,
 	
 	if ( !(EC_POINT_get_affine_coordinates_GFp(group,
 	                                           c1_pt,
-											   bn_c1_x,
-											   bn_c1_y,
-											   ctx)) )
+						   bn_c1_x,
+						   bn_c1_y,
+						   ctx)) )
 	{
 		goto clean_up;
 	}
 
 	if ( BN_bn2binpad(bn_c1_x,
 	                  c1_x,
-					  sizeof(c1_x)) != sizeof(c1_x) )
+			  sizeof(c1_x)) != sizeof(c1_x) )
 	{
 		goto clean_up;
 	}
 	if ( BN_bn2binpad(bn_c1_y,
 	                  c1_y,
-					  sizeof(c1_y)) != sizeof(c1_y) )
+			  sizeof(c1_y)) != sizeof(c1_y) )
 	{
 		goto clean_up;
 	}
@@ -288,10 +288,10 @@ clean_up:
 /*********************************************************/
 int sm2_encrypt(const unsigned char *message,
                 const int message_len,
-				const unsigned char *pub_key,
-				unsigned char *c1,
-				unsigned char *c3,
-				unsigned char *c2)
+		const unsigned char *pub_key,
+		unsigned char *c1,
+		unsigned char *c3,
+		unsigned char *c2)
 {
 	int error_code;
 	unsigned char pub_key_x[32], pub_key_y[32], c1_x[32], c1_y[32], x2[32], y2[32];
@@ -385,9 +385,9 @@ int sm2_encrypt(const unsigned char *message,
 
 	if ( !(EC_POINT_set_affine_coordinates_GFp(group,
 	                                           pub_key_pt,
-											   bn_pub_key_x,
-											   bn_pub_key_y,
-											   ctx)) )
+						   bn_pub_key_x,
+						   bn_pub_key_y,
+						   ctx)) )
 	{
 		goto clean_up;
 	}
@@ -425,21 +425,21 @@ int sm2_encrypt(const unsigned char *message,
 		}
 		if ( !(EC_POINT_get_affine_coordinates_GFp(group,
 		                                           ec_pt,
-												   bn_x2,
-												   bn_y2,
-												   ctx)) )
+							   bn_x2,
+							   bn_y2,
+							   ctx)) )
 		{
 			goto clean_up;
 		}
 		if ( BN_bn2binpad(bn_x2,
 		                  x2,
-						  sizeof(x2)) != sizeof(x2) )
+				  sizeof(x2)) != sizeof(x2) )
 		{
 			goto clean_up;
 		}
 		if ( BN_bn2binpad(bn_y2,
 		                  y2,
-						  sizeof(y2)) != sizeof(y2) )
+				  sizeof(y2)) != sizeof(y2) )
 		{
 			goto clean_up;
 		}
@@ -448,11 +448,11 @@ int sm2_encrypt(const unsigned char *message,
 		
 		if ( !(ECDH_KDF_X9_62(t,
 		                      message_len,
-							  x2_y2,
-							  sizeof(x2_y2),
-							  NULL,
-							  0,
-							  md)) )
+				      x2_y2,
+				      sizeof(x2_y2),
+				      NULL,
+				      0,
+				      md)) )
 		{
 			error_code = COMPUTE_SM2_KDF_FAIL;
 			goto clean_up;
@@ -473,22 +473,22 @@ int sm2_encrypt(const unsigned char *message,
 	
 	if ( !(EC_POINT_get_affine_coordinates_GFp(group,
 	                                           c1_pt,
-											   bn_c1_x,
-											   bn_c1_y,
-											   ctx)) )
+						   bn_c1_x,
+						   bn_c1_y,
+						   ctx)) )
 	{
 		goto clean_up;
 	}
 
 	if ( BN_bn2binpad(bn_c1_x,
 	                  c1_x,
-					  sizeof(c1_x)) != sizeof(c1_x) )
+			  sizeof(c1_x)) != sizeof(c1_x) )
 	{
 		goto clean_up;
 	}
 	if ( BN_bn2binpad(bn_c1_y,
 	                  c1_y,
-					  sizeof(c1_y)) != sizeof(c1_y) )
+			  sizeof(c1_y)) != sizeof(c1_y) )
 	{
 		goto clean_up;
 	}
@@ -499,9 +499,9 @@ int sm2_encrypt(const unsigned char *message,
 	
 	EVP_DigestInit_ex(md_ctx, md, NULL);
 	EVP_DigestUpdate(md_ctx, x2, sizeof(x2));
-    EVP_DigestUpdate(md_ctx, message, message_len);
+        EVP_DigestUpdate(md_ctx, message, message_len);
 	EVP_DigestUpdate(md_ctx, y2, sizeof(y2));
-    EVP_DigestFinal_ex(md_ctx, c3, NULL);
+        EVP_DigestFinal_ex(md_ctx, c3, NULL);
 	
 	for (i = 0; i < message_len; i++)
 	{
@@ -551,10 +551,10 @@ clean_up:
 /*********************************************************/
 int sm2_decrypt(const unsigned char *c1,
                 const unsigned char *c3,
-				const unsigned char *c2,
-				const int c2_len,
-				const unsigned char *pri_key,
-				unsigned char *plaintext)
+		const unsigned char *c2,
+		const int c2_len,
+		const unsigned char *pri_key,
+		unsigned char *plaintext)
 {
 	int error_code;
 	unsigned char c1_x[32], c1_y[32], x2[32], y2[32];
@@ -628,9 +628,9 @@ int sm2_decrypt(const unsigned char *c1,
 	
 	if ( !(EC_POINT_set_affine_coordinates_GFp(group,
 	                                           c1_pt,
-											   bn_c1_x,
-											   bn_c1_y,
-											   ctx)) )
+						   bn_c1_x,
+						   bn_c1_y,
+						   ctx)) )
 	{
 		goto clean_up;
 	}
@@ -660,21 +660,21 @@ int sm2_decrypt(const unsigned char *c1,
 	}
 	if ( !(EC_POINT_get_affine_coordinates_GFp(group,
 	                                           ec_pt,
-											   bn_x2,
-											   bn_y2,
-											   ctx)) )
+						   bn_x2,
+						   bn_y2,
+						   ctx)) )
 	{
 		goto clean_up;
 	}
 	if ( BN_bn2binpad(bn_x2,
-		              x2,
-					  sizeof(x2)) != sizeof(x2) )
+		          x2,
+			  sizeof(x2)) != sizeof(x2) )
 	{
 		goto clean_up;
 	}
 	if ( BN_bn2binpad(bn_y2,
-		              y2,
-					  sizeof(x2)) != sizeof(y2) )
+		          y2,
+			  sizeof(x2)) != sizeof(y2) )
 	{
 		goto clean_up;
 	}
@@ -688,11 +688,11 @@ int sm2_decrypt(const unsigned char *c1,
 	}
 	if ( !(ECDH_KDF_X9_62(t,
 	                      message_len,
-						  x2_y2,
-						  sizeof(x2_y2),
-						  NULL,
-						  0,
-						  md)) )
+			      x2_y2,
+			      sizeof(x2_y2),
+			      NULL,
+			      0,
+			      md)) )
 	{
 		error_code = COMPUTE_SM2_KDF_FAIL;
 		goto clean_up;
@@ -726,9 +726,9 @@ int sm2_decrypt(const unsigned char *c1,
 
 	EVP_DigestInit_ex(md_ctx, md, NULL);
 	EVP_DigestUpdate(md_ctx, x2, sizeof(x2));
-    EVP_DigestUpdate(md_ctx, M, message_len);
+        EVP_DigestUpdate(md_ctx, M, message_len);
 	EVP_DigestUpdate(md_ctx, y2, sizeof(y2));
-    EVP_DigestFinal_ex(md_ctx, digest, NULL);
+        EVP_DigestFinal_ex(md_ctx, digest, NULL);
 	
 	if ( memcmp(digest, c3, sizeof(digest)) )
 	{
