@@ -20,11 +20,11 @@
     random number k given in GM/T 0003.5-2012
 * Parameters:
     message[in]      input message
-	message_len[in]  input message length, size in bytes
-	pub_key[in]      SM2 public key
-	c1[out]          the first segment of ciphertext
-	c3[out]          the middle segment of ciphertext
-	c2[out]          the last segment of ciphertext
+    message_len[in]  input message length, size in bytes
+    pub_key[in]      SM2 public key
+    c1[out]          the first segment of ciphertext
+    c3[out]          the middle segment of ciphertext
+    c2[out]          the last segment of ciphertext
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -49,21 +49,21 @@
 **************************************************/
 int sm2_encrypt_data_test(const unsigned char *message,
                           const int message_len,
-						  const unsigned char *pub_key,
-						  unsigned char *c1,
-						  unsigned char *c3,
-						  unsigned char *c2);
+			  const unsigned char *pub_key,
+			  unsigned char *c1,
+			  unsigned char *c3,
+			  unsigned char *c2);
 
 /**************************************************
 * Name: sm2_encrypt_data
 * Function: compute SM2 encryption
 * Parameters:
     message[in]      input message
-	message_len[in]  input message length, size in bytes
-	pub_key[in]      SM2 public key
-	c1[out]          the first segment of ciphertext
-	c3[out]          the middle segment of ciphertext
-	c2[out]          the last segment of ciphertext
+    message_len[in]  input message length, size in bytes
+    pub_key[in]      SM2 public key
+    c1[out]          the first segment of ciphertext
+    c3[out]          the middle segment of ciphertext
+    c2[out]          the last segment of ciphertext
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -84,21 +84,21 @@ int sm2_encrypt_data_test(const unsigned char *message,
 **************************************************/
 int sm2_encrypt(const unsigned char *message,
                 const int message_len,
-				const unsigned char *pub_key,
-				unsigned char *c1,
-				unsigned char *c3,
-				unsigned char *c2);
+		const unsigned char *pub_key,
+		unsigned char *c1,
+		unsigned char *c3,
+		unsigned char *c2);
 
 /**************************************************
 * Name: sm2_decrypt
 * Function: decrypt SM2 ciphertext
 * Parameters:
     c1[in]            the first segment of ciphertext
-	c3[in]            the middle segment of ciphertext
+    c3[in]            the middle segment of ciphertext
     c2[in]            the last segment of ciphertext
-	c2_len[in]        c2 length, size in bytes
+    c2_len[in]        c2 length, size in bytes
     pri_key[in]       SM2 private key
-	plaintext[out]    decrypted result
+    plaintext[out]    decrypted result
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -117,10 +117,10 @@ int sm2_encrypt(const unsigned char *message,
 **************************************************/
 int sm2_decrypt(const unsigned char *c1,
                 const unsigned char *c3,
-				const unsigned char *c2,
-				const int c2_len,
-				const unsigned char *pri_key,
-				unsigned char *plaintext);
+		const unsigned char *c2,
+		const int c2_len,
+		const unsigned char *pri_key,
+		unsigned char *plaintext);
 
 #ifdef  __cplusplus
   }
