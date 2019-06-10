@@ -236,9 +236,9 @@ int sm2_encrypt_data_test(const unsigned char *message,
 	
 	EVP_DigestInit_ex(md_ctx, md, NULL);
 	EVP_DigestUpdate(md_ctx, x2, sizeof(x2));
-    EVP_DigestUpdate(md_ctx, message, message_len);
+        EVP_DigestUpdate(md_ctx, message, message_len);
 	EVP_DigestUpdate(md_ctx, y2, sizeof(y2));
-    EVP_DigestFinal_ex(md_ctx, c3, NULL);
+        EVP_DigestFinal_ex(md_ctx, c3, NULL);
 	
 	for (i = 0; i < message_len; i++)
 	{
@@ -247,11 +247,11 @@ int sm2_encrypt_data_test(const unsigned char *message,
 	error_code = 0;
 	
 clean_up:
-    if (t)
+        if (t)
 	{
 		free(t);
 	}
-    if (ctx)
+        if (ctx)
 	{
 		BN_CTX_end(ctx);
 		BN_CTX_free(ctx);
@@ -319,7 +319,7 @@ int sm2_encrypt(const unsigned char *message,
 	}
 	if ( !(ctx = BN_CTX_new()) )
 	{
-	   goto clean_up;
+	        goto clean_up;
 	}
 	BN_CTX_start(ctx);
 	bn_k = BN_CTX_get(ctx);
@@ -510,11 +510,11 @@ int sm2_encrypt(const unsigned char *message,
 	error_code = 0;
 	
 clean_up:
-    if (t)
+        if (t)
 	{
 		free(t);
 	}
-    if (ctx)
+        if (ctx)
 	{
 		BN_CTX_end(ctx);
 		BN_CTX_free(ctx);
@@ -739,7 +739,7 @@ int sm2_decrypt(const unsigned char *c1,
 	error_code = 0;
 
 clean_up:
-    if (ctx)
+        if (ctx)
 	{
 		BN_CTX_end(ctx);
 		BN_CTX_free(ctx);
@@ -760,6 +760,11 @@ clean_up:
 	if (ec_pt)
 	{
 		EC_POINT_free(ec_pt);
+	}
+	
+	if (md_ctx)
+	{
+		EVP_MD_CTX_free(md_ctx);
 	}
 	
 	if (t)
