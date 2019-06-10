@@ -159,7 +159,7 @@ int test_sm2_encrypt_and_decrypt(void)
 {
 	int error_code;
 	unsigned char msg[] = {"encryption standard"};
-	int msg_len = (unsigned int)(strlen((char *)msg));
+	int msg_len = (int)(strlen((char *)msg));
 	SM2_KEY_PAIR key_pair;
 	unsigned char c1[65], c3[32];
 	unsigned char *c2, *plaintext;
